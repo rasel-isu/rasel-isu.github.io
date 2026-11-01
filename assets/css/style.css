@@ -254,19 +254,23 @@ section.block { padding: clamp(44px, 7vw, 76px) 0; border-top: 1px solid var(--l
 .job:first-child { padding-top: 0; }
 .job:last-child { border-bottom: 0; padding-bottom: 0; }
 .job > * { grid-column: 2; }
-.job > .org-logo {
-  grid-column: 1; grid-row: 1 / span 3; align-self: start;
+.job > .org-logo-link { grid-column: 1; grid-row: 1 / span 3; align-self: start; display: block; border-radius: 14px; }
+.job > .org-logo-link:hover .org-logo { border-color: var(--ink-3); }
+.job > .org-logo, .job > .org-logo-link > .org-logo {
+  grid-column: 1; grid-row: 1 / span 3; align-self: start; display: block;
   width: 104px; height: 104px; object-fit: contain;
   background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 12px;
 }
 @media (max-width: 600px) {
   .job { grid-template-columns: 60px minmax(0, 1fr); column-gap: 16px; }
-  .job > .org-logo { width: 60px; height: 60px; padding: 6px; border-radius: 12px; }
+  .job > .org-logo, .job > .org-logo-link > .org-logo { width: 60px; height: 60px; padding: 6px; border-radius: 12px; }
 }
 .job-head { display: flex; justify-content: space-between; gap: 6px 18px; flex-wrap: wrap; align-items: baseline; }
 .job h3 { font-family: var(--sans); font-size: 1.08rem; font-weight: 600; letter-spacing: 0; }
 .job .when { font: 500 .8rem/1.6 var(--mono); color: var(--ink-3); white-space: nowrap; }
 .job .org { color: var(--ink-2); font-size: .95rem; margin: 2px 0 10px; }
+.job .org a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: 3px; }
+.job .org a:hover { color: var(--accent); text-decoration-color: currentColor; }
 .job ul { margin: 0; padding-left: 18px; color: var(--ink-2); font-size: .95rem; }
 .job li { margin-bottom: 5px; }
 .job li::marker { color: var(--ink-3); }
