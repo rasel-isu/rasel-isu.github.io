@@ -42,6 +42,7 @@ assets/video/              EMNLP talk (640x480, about 74 MB)
 | Add a publication | `index.html` → copy an `<li class="pub">` block. |
 | Update the CV | Replace `assets/files/Md_Rasel_Khondokar_CV.pdf` (keep the file name so links don't break). |
 | Change colors/fonts | Tokens at the top of `assets/css/style.css`. |
+| After editing CSS or JS | Bump the `?v=...` value on the `style.css` / `main.js` links in `index.html`, `research/sci-zsel.html` and `404.html` so browsers fetch the new file instead of a cached copy. |
 
 ## Preview locally
 
