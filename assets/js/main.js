@@ -90,6 +90,48 @@
     });
   });
 
+  // ---- Collapsible project grid ----
+  document.querySelectorAll('[data-expand]').forEach((btn) => {
+    const grid = document.getElementById(btn.dataset.expand);
+    if (!grid) return;
+    grid.classList.add('collapsed');
+    btn.addEventListener('click', () => {
+      const collapsed = grid.classList.toggle('collapsed');
+      btn.setAttribute('aria-expanded', String(!collapsed));
+      btn.textContent = collapsed ? 'Show all projects' : 'Show fewer';
+    });
+  });
+  // Filtering shows every match, so expand the grid when a filter is used.
+  filterBtns.forEach((b) => b.addEventListener('click', () => {
+    const grid = document.getElementById('project-cards');
+    const more = document.querySelector('[data-expand="project-cards"]');
+    if (!grid || !more) return;
+    const all = b.dataset.filter === 'all';
+    grid.classList.toggle('collapsed', all);
+    more.hidden = !all;
+    more.setAttribute('aria-expanded', 'false');
+    more.textContent = 'Show all projects';
+  }));
+
+  // ---- Certificate lightbox ----
+  const lb = document.getElementById('lightbox');
+  if (lb && typeof lb.showModal === 'function') {
+    const lbImg = lb.querySelector('img');
+    document.querySelectorAll('[data-lightbox]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        lbImg.src = btn.dataset.lightbox;
+        lbImg.alt = btn.getAttribute('aria-label') || '';
+        lb.showModal();
+      });
+    });
+    lb.querySelector('.lightbox-close').addEventListener('click', () => lb.close());
+    lb.addEventListener('click', (e) => { if (e.target === lb) lb.close(); });
+  } else {
+    document.querySelectorAll('[data-lightbox]').forEach((btn) => {
+      btn.addEventListener('click', () => window.open(btn.dataset.lightbox, '_blank', 'noopener'));
+    });
+  }
+
   // ---- Footer year ----
   document.querySelectorAll('[data-year]').forEach((el) => { el.textContent = new Date().getFullYear(); });
 

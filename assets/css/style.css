@@ -448,3 +448,75 @@ pre.bib {
   .reveal { opacity: 1; transform: none; }
   section.block { border: 0; padding: 20px 0; }
 }
+
+/* ---------- Secondary content from the earlier site ---------- */
+/* Org logos in the timeline */
+.job { padding-left: 36px; }
+.job .org-logo {
+  float: right; width: 44px; height: 44px; object-fit: contain; border-radius: 10px;
+  background: #fff; border: 1px solid var(--line); padding: 4px; margin: 0 0 8px 14px;
+}
+.org-mono { display: grid; place-items: center; font: 600 .78rem/1 var(--mono); color: var(--ink-2); background: var(--surface-2) !important; }
+.job-compact ul { font-size: .9rem; }
+.job-compact h3 { font-size: 1rem; }
+@media (max-width: 520px) { .job .org-logo { width: 36px; height: 36px; } }
+
+/* Project images + collapse */
+.card-media {
+  margin: -22px -22px 18px; aspect-ratio: 16 / 9; overflow: hidden;
+  border-radius: var(--radius) var(--radius) 0 0; background: #fff; border-bottom: 1px solid var(--line);
+}
+.card-media img { width: 100%; height: 100%; object-fit: cover; }
+.card-media:empty { display: none; }
+.card-media.contain img { object-fit: contain; }
+.moment { margin: 40px 0 0; max-width: 760px; }
+.moment img { border-radius: var(--radius); border: 1px solid var(--line); width: 100%; }
+.moment figcaption { text-align: left; }
+.project-cards.collapsed .card:nth-child(n+7) { display: none; }
+.more-wrap { display: flex; justify-content: center; margin-top: 22px; }
+.more-btn { cursor: pointer; }
+
+/* Education logos + photo */
+.edu li { display: flex; gap: 14px; align-items: flex-start; }
+.edu-logo { width: 40px; height: 40px; flex: none; object-fit: contain; border-radius: 9px; background: #fff; border: 1px solid var(--line); padding: 3px; }
+.edu .note { font-size: .86rem; color: var(--ink-3); margin-top: 2px; }
+.grad-photo { margin-top: 26px; }
+.grad-photo img { border-radius: var(--radius); border: 1px solid var(--line); aspect-ratio: 4 / 3; object-fit: cover; object-position: 50% 35%; width: 100%; }
+
+/* Certificates */
+.cert-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr)); gap: 16px; }
+.cert { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; display: flex; flex-direction: column; }
+.cert-thumb {
+  display: block; width: 100%; aspect-ratio: 16 / 10; padding: 0; border: 0; cursor: zoom-in;
+  background: #fff; border-bottom: 1px solid var(--line); overflow: hidden;
+}
+.cert-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform .3s; }
+.cert-thumb:hover img { transform: scale(1.04); }
+.cert-thumb.noimg { display: none; }
+.cert figcaption { padding: 14px 16px 16px; text-align: left; margin: 0; display: grid; gap: 3px; }
+.cert figcaption b { color: var(--ink); font-size: .9rem; line-height: 1.35; font-weight: 600; }
+.cert figcaption span { color: var(--ink-3); font-size: .8rem; }
+.cert figcaption a { font: 500 .76rem/1 var(--mono); margin-top: 6px; }
+
+/* Toolbox icon grid */
+.toolbox { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 140px), 1fr)); gap: 12px; }
+.toolbox li {
+  background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 14px 10px;
+  display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center;
+  font-size: .8rem; color: var(--ink-2); line-height: 1.3; transition: transform .15s, border-color .15s;
+}
+.toolbox li:hover { transform: translateY(-2px); border-color: var(--ink-3); }
+.toolbox img { width: 100%; max-width: 124px; height: 64px; object-fit: contain; background: #fff; border-radius: 8px; padding: 6px; }
+
+/* Small list with thumbnail */
+.mini-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; }
+.mini-list li { display: flex; gap: 14px; align-items: flex-start; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 14px; }
+.mini-list img { width: 64px; height: 64px; flex: none; object-fit: cover; border-radius: 10px; background: #fff; border: 1px solid var(--line); }
+.mini-list b { display: block; font-size: .93rem; line-height: 1.35; margin-bottom: 4px; }
+.mini-list span { color: var(--ink-2); font-size: .87rem; display: block; }
+
+/* Lightbox */
+.lightbox { border: 0; padding: 0; background: transparent; max-width: min(1100px, 94vw); max-height: 90vh; overflow: visible; }
+.lightbox::backdrop { background: rgba(10, 10, 12, .78); }
+.lightbox img { max-width: 100%; max-height: 86vh; border-radius: 10px; background: #fff; }
+.lightbox-close { position: absolute; top: -14px; right: -14px; border-radius: 50%; z-index: 1; }
