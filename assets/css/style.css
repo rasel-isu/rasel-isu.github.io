@@ -531,3 +531,24 @@ pre.bib {
 .lightbox::backdrop { background: rgba(10, 10, 12, .78); }
 .lightbox img { max-width: 100%; max-height: 86vh; border-radius: 10px; background: #fff; }
 .lightbox-close { position: absolute; top: -14px; right: -14px; border-radius: 50%; z-index: 1; }
+
+/* Presentations */
+.presentations {
+  display: grid; grid-template-columns: minmax(0, 300px) minmax(0, 1fr); gap: 28px; align-items: start;
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px;
+}
+.pres-photo { margin: 0; }
+.pres-photo img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 12px; border: 1px solid var(--line); }
+.pres-photo figcaption { font-size: .8rem; text-align: center; }
+.pres-photo-center { max-width: 380px; margin: 32px auto 0; }
+.pres-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 18px; }
+.pres-list li { display: grid; gap: 4px; padding-bottom: 18px; border-bottom: 1px solid var(--line); }
+.pres-list li:last-child { border-bottom: 0; padding-bottom: 0; }
+.pres-kind { font: 600 .74rem/1.4 var(--mono); text-transform: uppercase; letter-spacing: .05em; color: var(--highlight); }
+.pres-list b { font-size: 1.02rem; font-weight: 600; color: var(--ink); line-height: 1.35; }
+.pres-list span { color: var(--ink-2); font-size: .93rem; }
+.pres-links { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 4px; font: 500 .8rem/1.4 var(--mono); }
+@media (max-width: 760px) {
+  .presentations { grid-template-columns: 1fr; }
+  .presentations .pres-photo { max-width: 340px; margin: 0 auto; }
+}
